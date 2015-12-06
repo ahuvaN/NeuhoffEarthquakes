@@ -1,10 +1,13 @@
 package neuhoff.geojson;
 
-public class Earthquake {
-    
-    private Feature[] featureArray;
+import java.io.Serializable;
 
-    public Feature[] getFeatureArray(){
-        return featureArray;
+public class Earthquake implements Serializable{
+    
+    private Features[] features;
+
+    public Features[] getFeatureArray(){
+        return features;
     }
+
 }

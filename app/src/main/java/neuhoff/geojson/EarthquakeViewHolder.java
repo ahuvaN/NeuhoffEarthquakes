@@ -15,14 +15,16 @@ public class EarthquakeViewHolder extends RecyclerView.ViewHolder {
         name = (TextView) itemView.findViewById(R.id.name);
     }
 
-    public void bind(Feature feature){
+    public void bind(Properties property){
         StringBuilder sb = new StringBuilder();
-        String place = feature.getProperty().getPlace();
-        String[] split = place.split("");
+        String place = property.getPlace();
+        String[] split = place.split(" ");
         int length = split.length;
+        sb.append(split[length - 2]);
+        sb.append(" ");
         sb.append(split[length - 1]);
-        sb.append(split[length]);
-        name.setText(sb.toString());
+        place = sb.toString();
+        name.setText(place);
     }
 
 }

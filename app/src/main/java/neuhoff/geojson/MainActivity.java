@@ -21,7 +21,6 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private Earthquake earthquake;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,24 +33,9 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
 
-        earthquake = null;
-        try {
-            URL url = new URL("http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson");
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            InputStream in = connection.getInputStream();
-            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+        EarthquakeAsyncTask task = new EarthquakeAsyncTask(recyclerView);
+        task.execute();
 
-            Gson gson = new Gson();
-
-            earthquake = gson.fromJson(br, Earthquake.class);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Feature[] features = earthquake.getFeatureArray();
-        EarthquakeRecyclerViewAdapter adapter = new EarthquakeRecyclerViewAdapter(features);
-        recyclerView.setAdapter(adapter);
     }
 
     @Override
