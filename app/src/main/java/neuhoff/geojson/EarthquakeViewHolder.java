@@ -20,9 +20,10 @@ public class EarthquakeViewHolder extends RecyclerView.ViewHolder {
         String place = property.getPlace();
         String[] split = place.split(" ");
         int length = split.length;
-        sb.append(split[length - 2]);
-        sb.append(" ");
-        sb.append(split[length - 1]);
+        for (int i = 3; i < length; i++){
+            sb.append(split[i]);
+            sb.append(" ");
+        }
         place = sb.toString();
         name.setText(place);
     }
