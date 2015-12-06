@@ -38,11 +38,11 @@ public class EarthquakeAdapter extends PagerAdapter {
         Properties property = features[position].getProperty();
 
 
-        place.setText("place: ");
+        place.setText("CITY: ");
         place.append(property.getPlace());
-        mag.setText("magnitude: ");
+        mag.setText("MAGNITUDE: ");
         mag.append(String.valueOf(property.getMag()));
-        time.setText("time: ");
+        time.setText("TIME: ");
         time.append(property.getTime());
 
         container.addView(view);
