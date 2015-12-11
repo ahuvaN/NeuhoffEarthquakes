@@ -41,7 +41,7 @@ public class EarthquakeAsyncTask extends AsyncTask<String, Void, Boolean>{
 
         earthquake = null;
         try {
-            URL url = new URL("http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson");
+            URL url = new URL("http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             InputStream in = connection.getInputStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
